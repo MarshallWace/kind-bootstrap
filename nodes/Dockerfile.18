@@ -1,5 +1,7 @@
 FROM kindest/node:v1.18.8
 
+LABEL org.opencontainers.image.source https://github.com/MarshallWace/kind-bootstrap
+
 RUN echo "Installing gVisor" \
   && export GVISOR_URL="https://storage.googleapis.com/gvisor/releases/release/latest" \
   && curl -sSL --retry 5 -o /usr/bin/runsc "$GVISOR_URL/runsc" \
