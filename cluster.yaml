@@ -1,0 +1,16 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+containerdConfigPatches:
+  - |-
+    [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runsc]
+      runtime_type = "io.containerd.runsc.v1"
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.18.8
+  - role: worker
+    image: ghcr.io/marshallwace/kind-node:17
+  - role: worker
+    image: ghcr.io/marshallwace/kind-node:18
+    extraMounts:
+      - hostPath: /tmp
+        containerPath: /sensitive

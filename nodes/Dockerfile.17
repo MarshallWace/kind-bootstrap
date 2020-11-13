@@ -1,0 +1,7 @@
+FROM kindest/node:v1.17.5
+
+RUN echo "Installing gVisor" \
+  && export GVISOR_URL="https://storage.googleapis.com/gvisor/releases/release/latest" \
+  && curl -sSL --retry 5 -o /usr/bin/runsc "$GVISOR_URL/runsc" \
+  && curl -sSL --retry 5 -o /usr/bin/containerd-shim-runsc-v1 "$GVISOR_URL/containerd-shim-runsc-v1" \
+  && chmod a+rx /usr/bin/runsc /usr/bin/containerd-shim-runsc-v1
