@@ -14,8 +14,7 @@ if [ "${running}" != 'true' ]; then
 fi
 
 # create a cluster with the local registry enabled in containerd
-cat <<EOF | kind create cluster --config=cluster.yaml --name mw
-EOF
+kind create cluster --config=cluster.yaml --name mw
 
 # connect the registry to the cluster network
 # (the network may already be connected)
