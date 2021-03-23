@@ -53,4 +53,5 @@ mw-worker2         Ready      <none>   41s   v1.18.8
 
 ```bash
 $ kind delete cluster --name mw
+$ docker kill kind-registry
 ```
